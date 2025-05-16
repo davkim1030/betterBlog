@@ -2,19 +2,19 @@ from typing import Dict, List, Optional, Tuple
 from uuid import UUID
 
 from ..entities.user import User, UserRole
-from .base import BaseRepository
+from .base import Repository
 
 
-class UserRepository(BaseRepository[User]):
+class UserRepository(Repository[User]):
     """사용자 리포지토리 인터페이스"""
 
     async def get_by_email(self, email: str) -> Optional[User]:
         """이메일로 사용자를 조회합니다."""
-        pass
+        raise NotImplementedError
 
     async def get_by_username(self, username: str) -> Optional[User]:
         """사용자명으로 사용자를 조회합니다."""
-        pass
+        raise NotImplementedError
 
     # 통계 관련 메서드 추가
     async def get_user_counts_by_role(self) -> Dict[UserRole, int]:

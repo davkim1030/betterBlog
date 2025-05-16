@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours
     
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://user:password@localhost:5432/better_blog"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/better_blog"
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
@@ -33,3 +33,4 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings() 
+ 

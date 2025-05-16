@@ -2,10 +2,10 @@ from typing import Dict, List, Tuple
 from uuid import UUID
 
 from ..entities.comment import Comment
-from .base import BaseRepository
+from .base import Repository
 
 
-class CommentRepository(BaseRepository[Comment]):
+class CommentRepository(Repository[Comment]):
     """댓글 리포지토리 인터페이스"""
 
     async def get_by_post_id(

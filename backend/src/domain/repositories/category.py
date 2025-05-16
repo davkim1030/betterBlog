@@ -2,19 +2,23 @@ from typing import Dict, List, Optional, Tuple
 from uuid import UUID
 
 from ..entities.category import Category
-from .base import BaseRepository
+from .base import Repository
 
 
-class CategoryRepository(BaseRepository[Category]):
+class CategoryRepository(Repository[Category]):
     """카테고리 리포지토리 인터페이스"""
 
     async def get_by_slug(self, slug: str) -> Optional[Category]:
         """슬러그로 카테고리를 조회합니다."""
-        pass
+        raise NotImplementedError
 
-    async def get_root_categories(self, skip: int = 0, limit: int = 100) -> List[Category]:
+    async def get_by_parent_id(self, parent_id: UUID) -> list[Category]:
+        """부모 ID로 하위 카테고리를 조회합니다."""
+        raise NotImplementedError
+
+    async def get_root_categories(self) -> list[Category]:
         """최상위 카테고리를 조회합니다."""
-        pass
+        raise NotImplementedError
 
     async def get_children(
         self, parent_id: UUID, skip: int = 0, limit: int = 100

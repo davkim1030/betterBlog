@@ -2,10 +2,10 @@ from typing import Dict, List, Tuple
 from uuid import UUID
 
 from ..entities.post import Post, PostStatus
-from .base import BaseRepository
+from .base import Repository
 
 
-class PostRepository(BaseRepository[Post]):
+class PostRepository(Repository[Post]):
     """블로그 포스트 리포지토리 인터페이스"""
 
     async def get_by_author_id(
